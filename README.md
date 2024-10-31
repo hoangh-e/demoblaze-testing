@@ -44,7 +44,7 @@ project-folder/
 |-- tests/
 |   |-- test_example.py
 |-- README.md
-
+```
 ### 4. Chạy các bài kiểm tra
 Để chạy các bài kiểm tra, sử dụng lệnh sau:
 ```bash
