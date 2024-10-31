@@ -1,6 +1,3 @@
-Dưới đây là toàn bộ mã Markdown đầy đủ cho file `README.md`:
-
-```markdown
 # README
 
 ## Hướng dẫn thiết lập môi trường và chạy các script
