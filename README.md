@@ -1,6 +1,6 @@
 # README
 
-## Hướng dẫn thiết lập môi trường và chạy các script
+## Thiết lập môi trường và chạy các test
 
 Dự án này sử dụng **Python**, **Selenium** và **Pytest** để thực hiện các bài kiểm tra tự động trên trình duyệt **Microsoft Edge**. Dưới đây là các bước chi tiết để thiết lập môi trường và chạy các script:
 
