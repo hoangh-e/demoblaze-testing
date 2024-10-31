@@ -4,11 +4,11 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-# Tạo fixture khởi động và đóng trình duyệt cho mỗi test
+
 @pytest.fixture
 def driver():
-    driver = webdriver.Edge()
-    driver.maximize_window() 
+    driver = webdriver.Edge()  # Dùng Edge làm trình duyệt
+    driver.maximize_window()
     yield driver  
     driver.quit()  
 

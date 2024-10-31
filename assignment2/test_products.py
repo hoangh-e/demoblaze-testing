@@ -5,10 +5,10 @@ import time
 
 @pytest.fixture
 def driver():
-    driver = webdriver.Chrome()
+    driver = webdriver.Edge()  # Dùng Edge làm trình duyệt
     driver.maximize_window()
-    yield driver
-    driver.quit()
+    yield driver  
+    driver.quit()  
 
 #Kiểm tra số lượng sản phẩm trên trang đầu tiên của danh mục và chuyển sang trang kế tiếp
 def test_next_products_in_home(driver):

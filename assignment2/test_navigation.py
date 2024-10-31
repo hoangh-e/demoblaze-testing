@@ -3,13 +3,13 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
 
-# Fixture khởi tạo và đóng trình duyệt
+
 @pytest.fixture
 def driver():
-    driver = webdriver.Chrome()
+    driver = webdriver.Edge()  # Dùng Edge làm trình duyệt
     driver.maximize_window()
-    yield driver
-    driver.quit()
+    yield driver  
+    driver.quit()  
 
 # Test kiểm tra các liên kết của thanh điều hướng
 def test_navigation_bar(driver):

@@ -5,19 +5,20 @@ import time
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+
 @pytest.fixture
 def driver():
-    driver = webdriver.Chrome()
+    driver = webdriver.Edge()  # Dùng Edge làm trình duyệt
     driver.maximize_window()
-    yield driver
-    driver.quit()
+    yield driver  
+    driver.quit()  
 
 # Hàm accept khi alert xuất hiện
 def accept_alert(driver):
     WebDriverWait(driver, 10).until(EC.alert_is_present())
     alert = driver.switch_to.alert
     alert.accept()
-    time.sleep(0.1)
+    time.sleep(1)
 
 # Test thêm sản phẩm vào giỏ hàng và kiểm tra thứ tự sản phẩm trong giỏ
 def test_add_products_to_cart(driver):
@@ -63,7 +64,7 @@ def test_check_total_price_products_to_cart(driver):
     driver.find_element(By.XPATH, '/html/body/div[5]/div/div[2]/div[2]/div/a').click()
     accept_alert(driver)
     driver.find_element(By.XPATH, '/html/body/nav/div/div/ul/li[1]/a').click()
-    time.sleep(2)
+    time.sleep(5)
     driver.find_element(By.XPATH, '/html/body/div[5]/div/div[2]/div/div[3]/div/a/img').click()
     time.sleep(2)
     driver.find_element(By.XPATH, '/html/body/div[5]/div/div[2]/div[2]/div/a').click()
@@ -87,7 +88,7 @@ def test_check_total_price_products_to_cart(driver):
 # Test xóa sản phẩm từ giỏ hàng
 def test_delete_product_from_cart(driver):
     driver.get("https://www.demoblaze.com/")
-    time.sleep(5)
+    time.sleep(10)
 
     # Thêm 2 "Nexus 6" và "Nokia Lumia 1520" vào giỏ hàng
     driver.find_element(By.XPATH, '/html/body/div[5]/div/div[2]/div/div[2]/div/a/img').click()
@@ -95,7 +96,7 @@ def test_delete_product_from_cart(driver):
     driver.find_element(By.XPATH, '/html/body/div[5]/div/div[2]/div[2]/div/a').click()
     accept_alert(driver)
     driver.find_element(By.XPATH, '/html/body/nav/div/div/ul/li[1]/a').click()
-    time.sleep(2)
+    time.sleep(5)
     driver.find_element(By.XPATH, '/html/body/div[5]/div/div[2]/div/div[3]/div/a/img').click()
     time.sleep(2)
     driver.find_element(By.XPATH, '/html/body/div[5]/div/div[2]/div[2]/div/a').click()
@@ -137,7 +138,7 @@ def test_checkout_with_valid_information(driver):
     driver.find_element(By.XPATH, '/html/body/div[5]/div/div[2]/div[2]/div/a').click()
     accept_alert(driver)
     driver.find_element(By.XPATH, '/html/body/nav/div/div/ul/li[1]/a').click()
-    time.sleep(2)
+    time.sleep(5)
     driver.find_element(By.XPATH, '/html/body/div[5]/div/div[2]/div/div[3]/div/a/img').click()
     time.sleep(2)
     driver.find_element(By.XPATH, '/html/body/div[5]/div/div[2]/div[2]/div/a').click()
@@ -173,7 +174,7 @@ def test_checkout_with_invalid_information(driver):
     driver.find_element(By.XPATH, '/html/body/div[5]/div/div[2]/div[2]/div/a').click()
     accept_alert(driver)
     driver.find_element(By.XPATH, '/html/body/nav/div/div/ul/li[1]/a').click()
-    time.sleep(2)
+    time.sleep(5)
     driver.find_element(By.XPATH, '/html/body/div[5]/div/div[2]/div/div[3]/div/a/img').click()
     time.sleep(2)
     driver.find_element(By.XPATH, '/html/body/div[5]/div/div[2]/div[2]/div/a').click()

@@ -7,13 +7,12 @@ import string
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-# Khởi tạo và kết thúc trình duyệt cho mỗi test
 @pytest.fixture
 def driver():
-    driver = webdriver.Edge()  # Dùng Edge làm trình duyệt, có thể đổi sang Chrome hoặc Firefox
+    driver = webdriver.Edge()  # Dùng Edge làm trình duyệt
     driver.maximize_window()
-    yield driver  # Cung cấp driver cho các test
-    driver.quit()  # Đóng trình duyệt sau khi hoàn thành test
+    yield driver  
+    driver.quit()  
 
 # Hàm tạo chuỗi ký tự và số ngẫu nhiên
 def generate_random_string(length):
